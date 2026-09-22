@@ -267,19 +267,20 @@ export default function Home() {
             <p className="hero-note">Ответим в Telegram и поможем выбрать формат.</p>
           </div>
 
-          <figure className="hero-visual">
-            <img
-              src="images/hero-process.webp"
-              alt="Мастер проводит сеанс массажа в уютном кабинете"
-              width="1067"
-              height="1600"
-              fetchPriority="high"
-            />
-            <figcaption>
-              <span className="surfer">60 min</span>
-              <span>внимания к вашему состоянию</span>
-            </figcaption>
-          </figure>
+          <aside className="hero-visual" aria-label="Индивидуальный формат массажа">
+            <div className="hero-poster-top">
+              <span>Индивидуальный формат</span>
+              <span>Краснодар</span>
+            </div>
+            <div className="hero-poster-time">
+              <strong>60</strong>
+              <span>минут внимания к вашему состоянию</span>
+            </div>
+            <div className="hero-poster-bottom">
+              <p>Спокойно. Понятно. В комфортном для вас темпе.</p>
+              <span className="surfer">для вас</span>
+            </div>
+          </aside>
         </section>
 
         <section className="quick-facts" aria-label="Краткая информация">
@@ -336,15 +337,14 @@ export default function Home() {
         </section>
 
         <section className="section approach" id="approach">
-          <div className="approach-image">
-            <img
-              src="images/room-wide.webp"
-              alt="Подготовленный массажный кабинет"
-              width="1600"
-              height="1200"
-              loading="lazy"
-            />
-            <span className="image-label">Кабинет на Зиповской</span>
+          <div className="approach-poster" aria-label="Принципы индивидуального подхода">
+            <span className="approach-poster-caption">Перед каждым сеансом</span>
+            <p>Сначала — понять, что нужно именно вам.</p>
+            <div className="approach-poster-meta">
+              <span>Самочувствие</span>
+              <span>Пожелания</span>
+              <span>Интенсивность</span>
+            </div>
           </div>
           <div className="approach-copy">
             <h2>Не сеанс по шаблону, а работа с вашим запросом</h2>
@@ -392,14 +392,11 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div className="included-image">
-            <img
-              src="images/detail-candles.webp"
-              alt="Чистые полотенца и свечи в массажном кабинете"
-              width="1600"
-              height="866"
-              loading="lazy"
-            />
+          <div className="included-aside" aria-label="Атмосфера кабинета">
+            <p>Чисто.</p>
+            <p>Тихо.</p>
+            <p>Без спешки.</p>
+            <span>Всё необходимое уже подготовлено к вашему визиту.</span>
           </div>
         </section>
 
@@ -407,38 +404,29 @@ export default function Home() {
           <div className="section-heading space-heading">
             <h2>Тихое место, где можно выдохнуть</h2>
             <p>
-              Реальные фотографии кабинета. Чисто, тепло и без посторонних во
-              время вашего визита.
+              Чисто, тепло и без посторонних во время вашего визита.
             </p>
           </div>
-          <div className="gallery">
-            <figure className="gallery-main">
-              <img
-                src="images/room-light.webp"
-                alt="Светлый интерьер массажного кабинета"
-                width="1600"
-                height="1200"
-                loading="lazy"
-              />
-            </figure>
-            <figure>
-              <img
-                src="images/room-warm.webp"
-                alt="Тёплое освещение и массажный стол"
-                width="1600"
-                height="1200"
-                loading="lazy"
-              />
-            </figure>
-            <figure>
-              <img
-                src="images/room-dark.webp"
-                alt="Кабинет с приглушённым вечерним светом"
-                width="1600"
-                height="1200"
-                loading="lazy"
-              />
-            </figure>
+          <div className="space-grid">
+            <article>
+              <strong>Чисто</strong>
+              <p>Одноразовые материалы и свежий текстиль для каждого визита.</p>
+            </article>
+            <article>
+              <strong>Тепло</strong>
+              <p>Спокойная атмосфера и время, чтобы прийти в себя после сеанса.</p>
+            </article>
+            <article>
+              <strong>Приватно</strong>
+              <p>Частный формат без потока посетителей и посторонних.</p>
+            </article>
+            <article className="space-address">
+              <span>Краснодар</span>
+              <strong>ул. Зиповская, 36</strong>
+              <a href={routeUrl} target="_blank" rel="noopener noreferrer">
+                Построить маршрут <ArrowUpRightIcon />
+              </a>
+            </article>
           </div>
         </section>
 
