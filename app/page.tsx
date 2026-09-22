@@ -170,6 +170,29 @@ const ClockIcon = () => (
   </svg>
 );
 
+const MonogramIcon = ({ className = "" }: { className?: string }) => (
+  <svg
+    aria-hidden="true"
+    className={className}
+    viewBox="0 0 160 160"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path
+      className="monogram-stem"
+      d="M35 128 78 30c1-3 5-3 6 0l42 98"
+      pathLength="1"
+    />
+    <path
+      className="monogram-crossbar"
+      d="M54 92c20-9 41-11 62-5"
+      pathLength="1"
+    />
+  </svg>
+);
+
 export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
@@ -202,7 +225,7 @@ export default function Home() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Александра, на главную">
           <span className="brand-mark" aria-hidden="true">
-            A
+            <MonogramIcon />
           </span>
           <span className="brand-copy">
             <strong>Александра</strong>
@@ -268,13 +291,14 @@ export default function Home() {
           </div>
 
           <aside className="hero-visual" aria-label="Индивидуальный формат массажа">
+            <MonogramIcon className="hero-monogram" />
             <div className="hero-poster-top">
               <span>Индивидуальный формат</span>
               <span>Краснодар</span>
             </div>
             <div className="hero-poster-time">
-              <strong>60</strong>
-              <span>минут внимания к вашему состоянию</span>
+              <strong>1:1</strong>
+              <span>один мастер и один посетитель — без потока</span>
             </div>
             <div className="hero-poster-bottom">
               <p>Спокойно. Понятно. В комфортном для вас темпе.</p>
@@ -320,9 +344,19 @@ export default function Home() {
             {services.map((service, index) => (
               <article className="service-row" key={service.name}>
                 <span className="service-index">0{index + 1}</span>
-                <div>
+                <div className="service-copy">
                   <h3>{service.name}</h3>
                   <p>{service.description}</p>
+                  <a
+                    className="service-cta"
+                    href={telegramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Уточнить формат: ${service.name}`}
+                  >
+                    Уточнить формат
+                    <ArrowUpRightIcon />
+                  </a>
                 </div>
                 <span className="service-duration">{service.duration}</span>
                 <strong className="service-price">{service.price}</strong>
@@ -364,8 +398,14 @@ export default function Home() {
         </section>
 
         <section className="section visit">
-          <div className="section-heading compact">
+          <div className="visit-intro">
             <h2>Как всё проходит</h2>
+            <p>От первого сообщения до спокойного завершения визита.</p>
+            <div className="visit-progress" aria-hidden="true">
+              <span>01</span>
+              <i />
+              <span>04</span>
+            </div>
           </div>
           <div className="visit-steps">
             {visitSteps.map((step) => (
@@ -393,10 +433,8 @@ export default function Home() {
             </ul>
           </div>
           <div className="included-aside" aria-label="Атмосфера кабинета">
-            <p>Чисто.</p>
-            <p>Тихо.</p>
-            <p>Без спешки.</p>
-            <span>Всё необходимое уже подготовлено к вашему визиту.</span>
+            <p>Всё готово к вашему визиту.</p>
+            <span>Вода, душ, чистый текстиль и время спокойно собраться после сеанса.</span>
           </div>
         </section>
 
@@ -494,7 +532,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="footer-brand">
           <span className="brand-mark" aria-hidden="true">
-            A
+            <MonogramIcon />
           </span>
           <p>
             <strong>Александра</strong>

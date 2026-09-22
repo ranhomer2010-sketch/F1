@@ -44,7 +44,7 @@ The practice is presented as personal, unhurried work that starts with a consult
 ## Brand Commitments
 
 - Working public name: `Александра | массаж в Краснодаре` until the client approves a final name.
-- Use the supplied green and pink palette.
+- Use the supplied warm neutral palette: `#DEDDDB`, `#F9F3E7`, `#D9C5BA`, `#866554`, `#513833`.
 - Archivo Black for supported Latin glyphs, Original Surfer only for brief supported accents, Manrope for Russian text and controls.
 - Voice: calm, personal, respectful and concrete; no medical promises or exaggerated claims.
 
