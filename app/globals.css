@@ -1534,6 +1534,11 @@ details[open] .faq-plus {
     margin-top: -4px;
   }
 
+  .service-cta {
+    opacity: 1;
+    transform: none;
+  }
+
   .approach-poster {
     min-height: 500px;
     padding: 42px 24px;
