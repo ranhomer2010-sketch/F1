@@ -703,6 +703,13 @@ h2 {
   font-size: clamp(1rem, 1.5vw, 1.18rem);
 }
 
+.approach-detail {
+  max-width: 700px;
+  margin: 22px 0 0;
+  color: color-mix(in srgb, var(--paper) 84%, transparent);
+  font-size: 0.94rem;
+}
+
 blockquote {
   margin: clamp(48px, 7vw, 86px) 0 0;
   padding-top: 24px;
@@ -1074,8 +1081,34 @@ details[open] .faq-plus {
   color: var(--paper);
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.contact-actions .button {
+  margin-top: 0;
+}
+
+.contact-copy .button-secondary {
+  border-color: color-mix(in srgb, var(--paper) 65%, transparent);
+  background: transparent;
+  color: var(--paper);
+}
+
+.contact-copy .button-secondary:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
 .button-dark {
   margin-top: 36px;
+}
+
+.contact-actions .button-dark {
+  margin-top: 0;
 }
 
 .contact-details {
@@ -1110,7 +1143,7 @@ details[open] .faq-plus {
 }
 
 .contact-details strong,
-.contact-details a:not(:last-child) {
+.contact-details .contact-primary {
   font-size: clamp(1rem, 1.6vw, 1.25rem);
   font-weight: 750;
   letter-spacing: -0.025em;
@@ -1121,6 +1154,7 @@ details[open] .faq-plus {
   overflow-wrap: anywhere;
 }
 
+.contact-details .contact-secondary,
 .contact-details div > a:last-child,
 .contact-details small {
   margin-top: 7px;
@@ -1155,6 +1189,7 @@ details[open] .faq-plus {
 
 .footer-data {
   justify-self: end;
+  max-width: 360px;
   text-align: right;
 }
 
@@ -1611,6 +1646,10 @@ details[open] .faq-plus {
   }
 
   .contact-copy .button {
+    width: 100%;
+  }
+
+  .contact-actions {
     width: 100%;
   }
 

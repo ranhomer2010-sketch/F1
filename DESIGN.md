@@ -20,7 +20,8 @@ Calm editorial landing page for a private massage practice. The current review v
 
 ## Interaction
 
-- Telegram is the primary action throughout the page.
+- Telegram is the primary action throughout the page; MAX is the secondary booking route in the contact section.
+- The trust section is typographic while photography is paused: Alexandra's confirmed 12 years of practice anchors the composition.
 - Motion is limited to the first-screen monogram reveal and subtle hover/focus feedback.
 - Service rows expose a contextual Telegram action without turning the whole row into a hidden link.
 - Focus rings, reduced-motion preferences and touch-sized controls are preserved.

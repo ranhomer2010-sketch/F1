@@ -16,7 +16,7 @@ People in Krasnodar choosing a private massage session and wanting to understand
 
 ## Product Purpose
 
-Present the private massage practice clearly and lead an interested visitor into a personal Telegram conversation for booking. Success means the visitor understands the available sessions and confidently opens the booking chat.
+Present the private massage practice clearly and lead an interested visitor into a personal Telegram or MAX conversation for booking. Success means the visitor understands the available sessions and confidently opens the booking chat.
 
 ## Positioning
 
@@ -27,6 +27,7 @@ The practice is presented as personal, unhurried work that starts with a consult
 - Address: Krasnodar, 36 Zipovskaya Street.
 - Hours: daily, by appointment, 10:00-21:00.
 - Primary booking channel: Telegram chat at `@sandra_massage`.
+- Secondary booking channel: MAX at `https://clck.ru/3W4EN5`.
 - Phone: `8 (988) 387-98-87`.
 - Email: `sandra.massage.krd@gmail.com`.
 
@@ -38,7 +39,7 @@ The practice is presented as personal, unhurried work that starts with a consult
 - The preview is static and must not transmit visitor data.
 - Production will be hosted on Reg.ru; GitHub Pages is used only for review.
 - Requirements from the supplied 152-FZ internal standard apply.
-- MAX link, exact map link, final logo and a final business name were not supplied.
+- Exact map link, final logo and a final business name were not supplied.
 - The earlier name `Reborn` is not used because the client indicated it needs reconsideration.
 
 ## Brand Commitments
@@ -50,16 +51,17 @@ The practice is presented as personal, unhurried work that starts with a consult
 
 ## Evidence on Hand
 
-- Client brief: `/workspace/scratch/77021f8cd59d/upload/Бриф_для_сайта_массажа_обновленный.pdf`.
+- Current client brief: `/workspace/scratch/77021f8cd59d/upload/Бриф_для_сайта_массажа.docx`.
 - Competitor analysis based on 42 websites: `/workspace/scratch/77021f8cd59d/upload/Анализ_ниши_массажных_салонов (1).pdf`.
 - Six supplied photos of the room, details and massage process in `/workspace/scratch/77021f8cd59d/upload/`.
 - One client-message screenshot confirming that the old name needs replacement.
-- No verified testimonials, qualifications, work-experience length or final master biography were supplied; the website must not fabricate them.
+- The client confirmed Alexandra's 12 years of practice, personal biography, consultation flow, preparation rules, parking and MAX contact.
+- No verified testimonials, qualifications, exact map link or final business name were supplied; the website must not fabricate them.
 
 ## Product Principles
 
 - Make the offer, price and booking action clear within seconds.
-- Use real supplied photography as proof of the actual experience.
+- Use only approved real photography; keep the current review version photo-free until suitable images are selected.
 - Explain the first visit and consultation without information overload.
 - Keep claims factual and avoid promises about medical outcomes.
 - Minimize data handling and external services.
