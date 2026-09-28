@@ -2,7 +2,7 @@
 
 ## Direction
 
-Calm editorial landing page for a private massage practice. The hero combines approved photo 7 with restrained typography; spacing and the warm mineral palette carry the rest of the visual hierarchy.
+Calm editorial landing page for a private massage practice. Approved photography now carries the narrative from the hero through the cabinet, process and preparation sections, with restrained typography and a warm mineral palette tying the page together.
 
 ## Visual language
 
@@ -29,4 +29,4 @@ Calm editorial landing page for a private massage practice. The hero combines ap
 
 ## Image policy
 
-Photo 7 is rendered as the main hero image with a responsive `object-fit: cover` crop. Other photographs are not rendered until the client approves their placement.
+All seven approved photos are rendered with responsive `object-fit: cover` crops. Photo 7 leads the hero; photos 1–6 are distributed across the about, visit, included and space sections. Gradients and compact captions protect text contrast without hiding the atmosphere of each frame.

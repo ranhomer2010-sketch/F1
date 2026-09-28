@@ -400,7 +400,14 @@ export default function Home() {
         </section>
 
         <section className="section approach" id="about">
-          <div className="approach-poster" aria-label="Принципы индивидуального подхода">
+          <div className="approach-poster">
+            <img
+              src="./images/photo-01-room.webp"
+              alt="Подготовленный массажный кабинет с мягким светом и зеленью"
+              width="941"
+              height="1672"
+              loading="lazy"
+            />
             <span className="approach-poster-caption">12 лет практики</span>
             <p>Камерный массаж. Только для вас.</p>
             <div className="approach-poster-meta">
@@ -440,6 +447,16 @@ export default function Home() {
               <i />
               <span>04</span>
             </div>
+            <figure className="visit-photo">
+              <img
+                src="./images/photo-02-table.webp"
+                alt="Массажный стол у окна в тёплом кабинете"
+                width="941"
+                height="1672"
+                loading="lazy"
+              />
+              <figcaption>Кабинет готовится к каждому визиту</figcaption>
+            </figure>
           </div>
           <div className="visit-steps">
             {visitSteps.map((step) => (
@@ -466,9 +483,18 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div className="included-aside" aria-label="Атмосфера кабинета">
-            <p>Всё готово к вашему визиту.</p>
-            <span>Полотенца, пледы, масла, вода и время спокойно собраться после сеанса.</span>
+          <div className="included-aside">
+            <img
+              src="./images/photo-06-details.webp"
+              alt="Чистые полотенца и свечи, подготовленные к сеансу"
+              width="1122"
+              height="1402"
+              loading="lazy"
+            />
+            <div className="included-aside-caption">
+              <p>Всё готово к вашему визиту.</p>
+              <span>Полотенца, пледы, масла, вода и время спокойно собраться после сеанса.</span>
+            </div>
           </div>
         </section>
 
@@ -478,6 +504,38 @@ export default function Home() {
             <p>
               Чисто, тепло и без посторонних во время вашего визита.
             </p>
+          </div>
+          <div className="space-gallery" aria-label="Фотографии кабинета">
+            <figure>
+              <img
+                src="./images/photo-03-room.webp"
+                alt="Массажный кабинет с подготовленным столом и зелёными растениями"
+                width="941"
+                height="1672"
+                loading="lazy"
+              />
+              <figcaption>Тёплый свет</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="./images/photo-04-room.webp"
+                alt="Просторный массажный стол в камерном кабинете"
+                width="941"
+                height="1672"
+                loading="lazy"
+              />
+              <figcaption>Только один посетитель</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="./images/photo-05-lounge.webp"
+                alt="Зона отдыха у окна с пледом и мягким вечерним светом"
+                width="941"
+                height="1672"
+                loading="lazy"
+              />
+              <figcaption>Время выдохнуть</figcaption>
+            </figure>
           </div>
           <div className="space-grid">
             <article>

@@ -639,15 +639,46 @@ h2 {
 }
 
 .approach-poster {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 760px;
   padding: clamp(46px, 6vw, 88px);
-  background: var(--blush);
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.approach-poster::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(40 25 20 / 0.38), transparent 36%),
+    linear-gradient(0deg, rgb(40 25 20 / 0.72), transparent 58%);
+  content: "";
+  pointer-events: none;
+}
+
+.approach-poster > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 52%;
 }
 
 .approach-poster-caption {
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+  padding: 8px 12px;
+  border: 1px solid rgb(249 243 231 / 0.48);
+  border-radius: 999px;
+  background: rgb(81 56 51 / 0.36);
+  backdrop-filter: blur(8px);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -655,6 +686,8 @@ h2 {
 }
 
 .approach-poster > p {
+  position: relative;
+  z-index: 2;
   max-width: 9ch;
   margin: auto 0;
   font-size: clamp(2.7rem, 5vw, 5rem);
@@ -664,11 +697,13 @@ h2 {
 }
 
 .approach-poster-meta {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   gap: 10px 18px;
   padding-top: 24px;
-  border-top: 1px solid color-mix(in srgb, var(--ink) 24%, transparent);
+  border-top: 1px solid rgb(249 243 231 / 0.4);
   font-size: 0.78rem;
   font-weight: 720;
 }
@@ -760,6 +795,40 @@ blockquote footer {
 .visit-progress i {
   height: 1px;
   background: var(--line);
+}
+
+.visit-photo {
+  position: relative;
+  height: clamp(240px, 30vw, 360px);
+  margin: 42px 0 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--blush);
+}
+
+.visit-photo::after {
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(0deg, rgb(38 24 19 / 0.66), transparent);
+  content: "";
+}
+
+.visit-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.visit-photo figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  bottom: 18px;
+  left: 20px;
+  color: var(--paper);
+  font-size: 0.75rem;
+  font-weight: 750;
 }
 
 .visit-steps {
@@ -861,29 +930,53 @@ blockquote footer {
 }
 
 .included-aside {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
   min-height: 610px;
-  padding: clamp(44px, 6vw, 84px);
+  overflow: hidden;
   border-radius: var(--radius);
-  background: var(--paper);
+  background: var(--ink);
 }
 
-.included-aside p {
-  max-width: 9ch;
+.included-aside::after {
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(0deg, rgb(35 20 15 / 0.68), transparent);
+  content: "";
+}
+
+.included-aside > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 48%;
+}
+
+.included-aside-caption {
+  position: absolute;
+  z-index: 1;
+  right: clamp(24px, 4vw, 52px);
+  bottom: clamp(24px, 4vw, 52px);
+  left: clamp(24px, 4vw, 52px);
+  color: var(--paper);
+}
+
+.included-aside-caption p {
+  max-width: 11ch;
   margin: 0;
-  font-size: clamp(3rem, 5.5vw, 5.6rem);
+  font-size: clamp(2.2rem, 4.4vw, 4.4rem);
   font-weight: 780;
   letter-spacing: -0.04em;
   line-height: 0.95;
 }
 
-.included-aside span {
+.included-aside-caption span {
+  display: block;
   max-width: 30ch;
-  margin-top: 44px;
-  padding-top: 22px;
-  border-top: 1px solid color-mix(in srgb, var(--ink) 26%, transparent);
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgb(249 243 231 / 0.42);
   font-size: 0.86rem;
   font-weight: 650;
 }
@@ -894,6 +987,59 @@ blockquote footer {
 
 .space-heading {
   grid-template-columns: minmax(320px, 1fr) minmax(240px, 0.55fr);
+}
+
+.space-gallery {
+  display: grid;
+  grid-template-columns: 1.05fr 0.9fr 1.05fr;
+  gap: 12px;
+  margin-bottom: clamp(54px, 7vw, 94px);
+}
+
+.space-gallery figure {
+  position: relative;
+  height: clamp(390px, 43vw, 590px);
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--canvas);
+}
+
+.space-gallery figure:nth-child(2) {
+  margin-top: 58px;
+  margin-bottom: 58px;
+}
+
+.space-gallery figure::after {
+  position: absolute;
+  inset: 55% 0 0;
+  background: linear-gradient(0deg, rgb(35 20 15 / 0.62), transparent);
+  content: "";
+}
+
+.space-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 52%;
+  transition: transform 600ms var(--ease-out);
+}
+
+.space-gallery figure:hover img {
+  transform: scale(1.025);
+}
+
+.space-gallery figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 22px;
+  bottom: 20px;
+  left: 22px;
+  color: var(--paper);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
 .space-grid {
@@ -1572,6 +1718,11 @@ details[open] .faq-plus {
     margin-top: 30px;
   }
 
+  .visit-photo {
+    height: 360px;
+    max-width: 520px;
+  }
+
   .visit-steps article {
     min-height: 270px;
     padding: 48px;
@@ -1585,6 +1736,23 @@ details[open] .faq-plus {
 
   .included-aside {
     min-height: 480px;
+  }
+
+  .space-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .space-gallery figure {
+    height: 460px;
+  }
+
+  .space-gallery figure:nth-child(2) {
+    margin: 38px 0 -38px;
+  }
+
+  .space-gallery figure:nth-child(3) {
+    grid-column: 1 / 3;
+    width: calc(50% - 6px);
   }
 
   .space-grid {
@@ -1771,7 +1939,31 @@ details[open] .faq-plus {
 
   .included-aside {
     min-height: 400px;
-    padding: 42px 24px;
+  }
+
+  .included-aside-caption {
+    right: 24px;
+    bottom: 24px;
+    left: 24px;
+  }
+
+  .space-gallery {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 58px;
+  }
+
+  .space-gallery figure,
+  .space-gallery figure:nth-child(2),
+  .space-gallery figure:nth-child(3) {
+    grid-column: 1;
+    width: 100%;
+    height: 420px;
+    margin: 0;
+  }
+
+  .space-gallery figure:nth-child(2) {
+    height: 340px;
   }
 
   .space-grid {
