@@ -36,10 +36,12 @@ The practice is presented as personal, unhurried work that starts with a consult
 - One-page presentation website.
 - No personal-data collection form.
 - Services show duration and price together.
-- The preview is static and must not transmit visitor data.
+- The preview is static and makes no request to Yandex until the visitor explicitly consents to loading the reviews widget.
 - Production will be hosted on Reg.ru; GitHub Pages is used only for review.
 - Requirements from the supplied 152-FZ internal standard apply.
-- Exact map link, final logo and a final business name were not supplied.
+- The verified Yandex Maps organization card is https://yandex.ru/maps/org/studiya_massazha_i_spa/181183854833/.
+- The reviews iframe is created only after an unchecked consent control is selected and the visitor presses the load button. The choice is not persisted.
+- A final logo and final business name were not supplied.
 - The earlier name `Reborn` is not used because the client indicated it needs reconsideration.
 
 ## Brand Commitments
@@ -56,7 +58,7 @@ The practice is presented as personal, unhurried work that starts with a consult
 - Six supplied photos of the room, details and massage process in `/workspace/scratch/77021f8cd59d/upload/`.
 - One client-message screenshot confirming that the old name needs replacement.
 - The client confirmed Alexandra's 12 years of practice, personal biography, consultation flow, preparation rules, parking and MAX contact.
-- No verified testimonials, qualifications, exact map link or final business name were supplied; the website must not fabricate them.
+- The Yandex organization card is verified and may provide reviews after opt-in. No separate testimonial copy, qualifications or final business name were supplied; the website must not fabricate them.
 
 ## Product Principles
 

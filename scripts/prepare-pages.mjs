@@ -7,9 +7,14 @@ const cssDirectory = path.join(outputDirectory, "_next/static/css");
 
 let html = await readFile(htmlPath, "utf8");
 
-html = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, (script) =>
-  /type=["']application\/ld\+json["']/i.test(script) ? script : "",
-);
+html = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, (script) => {
+  const openingTag = script.match(/^<script\b[^>]*>/i)?.[0] ?? "";
+
+  return /type=["']application\/ld\+json["']/i.test(openingTag) ||
+    /\bdata-external-consent(?:=["'][^"']*["'])?/i.test(openingTag)
+    ? script
+    : "";
+});
 
 html = html.replace(
   /<link\b(?=[^>]*\brel=["']modulepreload["'])[^>]*\/?\s*>/gi,
@@ -35,4 +40,4 @@ for (const filename of await readdir(cssDirectory)) {
   await writeFile(cssPath, portableCss);
 }
 
-console.log("Prepared a script-free, relative-path build for GitHub Pages.");
+console.log("Prepared a privacy-gated, relative-path build for GitHub Pages.");

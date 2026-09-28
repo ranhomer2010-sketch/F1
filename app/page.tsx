@@ -1,3 +1,5 @@
+import { YandexReviews } from "@/components/yandex-reviews";
+
 const services = [
   {
     name: "Классический массаж",
@@ -96,8 +98,11 @@ const faqs = [
 
 const telegramUrl = "https://t.me/sandra_massage";
 const maxUrl = "https://clck.ru/3W4EN5";
-const routeUrl =
-  "https://yandex.ru/maps/?text=Краснодар%2C%20ул.%20Зиповская%2C%2036";
+const yandexOrganizationUrl =
+  "https://yandex.ru/maps/org/studiya_massazha_i_spa/181183854833/?ll=39.010751%2C45.062210&z=14";
+const yandexReviewsWidgetUrl =
+  "https://yandex.ru/maps-reviews-widget/181183854833?comments";
+const routeUrl = yandexOrganizationUrl;
 
 const TelegramIcon = () => (
   <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
@@ -254,6 +259,7 @@ export default function Home() {
           <a href="#services">Услуги</a>
           <a href="#about">О мастере</a>
           <a href="#space">Кабинет</a>
+          <a href="#reviews">Отзывы</a>
           <a href="#faq">Вопросы</a>
         </nav>
 
@@ -490,6 +496,11 @@ export default function Home() {
           </div>
         </section>
 
+        <YandexReviews
+          organizationUrl={yandexOrganizationUrl}
+          widgetUrl={yandexReviewsWidgetUrl}
+        />
+
         <section className="section faq" id="faq">
           <div className="section-heading compact">
             <h2>Частые вопросы</h2>
@@ -595,8 +606,8 @@ export default function Home() {
           консультация врача.
         </p>
         <p className="footer-data">
-          Сайт не использует формы, cookies и аналитику. Переход в Telegram или
-          MAX выполняется только по вашему действию.
+          Сайт не использует формы и аналитику. Яндекс-виджет и связанные с ним
+          cookies загружаются только после вашего отдельного согласия.
         </p>
       </footer>
 

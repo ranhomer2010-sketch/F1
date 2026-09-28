@@ -24,6 +24,7 @@ Calm editorial landing page for a private massage practice. The current review v
 - The trust section is typographic while photography is paused: Alexandra's confirmed 12 years of practice anchors the composition.
 - Motion is limited to the first-screen monogram reveal and subtle hover/focus feedback.
 - Service rows expose a contextual Telegram action without turning the whole row into a hidden link.
+- Yandex reviews use a dedicated consent surface. The external iframe does not exist in the document until the visitor checks the consent box and presses the load button.
 - Focus rings, reduced-motion preferences and touch-sized controls are preserved.
 
 ## Image policy
