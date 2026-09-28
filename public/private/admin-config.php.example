@@ -1,0 +1,15 @@
+<?php
+declare(strict_types=1);
+
+return [
+    'username' => 'replace-me',
+    'password' => [
+        'algo' => 'pbkdf2-sha256',
+        'salt' => 'replace-with-random-hex',
+        'iterations' => 600000,
+        'hash' => 'replace-with-pbkdf2-hash',
+    ],
+    'rate_limit_secret' => 'replace-with-random-hex',
+    'session_name' => 'alexandra_admin',
+    'session_ttl' => 1800,
+];

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>Редактор сайта | Александра</title>
+    <link rel="stylesheet" href="./admin.css" />
+    <script src="./schema.js" defer></script>
+    <script src="./admin.js" defer></script>
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section class="login-card" data-login-view hidden>
+        <div class="admin-mark" aria-hidden="true">А</div>
+        <p class="eyebrow">Управление сайтом</p>
+        <h1>Вход в редактор</h1>
+        <p class="muted">Редактирование текстов доступно только авторизованному администратору.</p>
+
+        <form data-login-form>
+          <label>
+            <span>Логин</span>
+            <input name="username" type="text" autocomplete="username" required />
+          </label>
+          <label>
+            <span>Пароль</span>
+            <input name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <button type="submit">Войти</button>
+        </form>
+        <p class="form-message" data-login-message role="status"></p>
+      </section>
+
+      <section class="setup-card" data-setup-view hidden>
+        <div class="admin-mark" aria-hidden="true">А</div>
+        <p class="eyebrow">Предпросмотр админки</p>
+        <h1>Серверная часть включится на Reg.ru</h1>
+        <p>
+          GitHub Pages показывает интерфейс, но не выполняет PHP. После переноса сайта на российский
+          хостинг здесь появится защищённый вход и сохранение текстов.
+        </p>
+        <a href="../">Вернуться на сайт</a>
+      </section>
+
+      <section class="editor" data-editor-view hidden>
+        <header class="editor-header">
+          <div>
+            <p class="eyebrow">Александра · сайт</p>
+            <h1>Редактор текстов</h1>
+          </div>
+          <div class="header-actions">
+            <a href="../" target="_blank" rel="noopener noreferrer">Открыть сайт</a>
+            <button class="button-secondary" type="button" data-logout>Выйти</button>
+          </div>
+        </header>
+
+        <div class="editor-toolbar">
+          <p data-save-status role="status">Все изменения сохранены</p>
+          <button type="button" data-save>Сохранить изменения</button>
+        </div>
+
+        <form class="content-form" data-content-form></form>
+      </section>
+    </main>
+  </body>
+</html>

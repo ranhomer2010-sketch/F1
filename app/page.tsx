@@ -270,7 +270,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <TelegramIcon />
-          Записаться
+          <span data-content="common.book">Записаться</span>
         </a>
       </header>
 
@@ -278,21 +278,25 @@ export default function Home() {
         <section className="hero" id="top">
           <div className="hero-copy">
             <h1>
-              Персональный массаж.
-              <span>В вашем ритме.</span>
+              <span className="hero-title-primary" data-content="hero.title_primary">
+                Персональный массаж.
+              </span>
+              <span className="hero-title-accent" data-content="hero.title_accent">
+                В вашем ритме.
+              </span>
             </h1>
-            <p className="hero-lead">
+            <p className="hero-lead" data-content="hero.lead">
               Сначала разберёмся, что нужно именно вам. Затем подберём технику,
               интенсивность и продолжительность сеанса.
             </p>
             <div className="hero-meta" aria-label="Адрес и время работы">
               <span>
                 <LocationIcon />
-                Зиповская, 36
+                <span data-content="hero.address">Зиповская, 36</span>
               </span>
               <span>
                 <ClockIcon />
-                Ежедневно 10:00-21:00
+                <span data-content="hero.hours">Ежедневно 10:00-21:00</span>
               </span>
             </div>
             <div className="hero-actions">
@@ -303,35 +307,42 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 <TelegramIcon />
-                Написать мастеру
+                <span data-content="hero.primary_cta">Написать мастеру</span>
                 <ArrowUpRightIcon />
               </a>
               <a className="text-link" href="#services">
-                Посмотреть услуги <ArrowDownIcon />
+                <span data-content="hero.secondary_cta">Посмотреть услуги</span>
+                <ArrowDownIcon />
               </a>
             </div>
-            <p className="hero-note">Ответим в Telegram и поможем выбрать формат.</p>
+            <p className="hero-note" data-content="hero.note">
+              Ответим в Telegram и поможем выбрать формат.
+            </p>
           </div>
 
           <aside className="hero-visual" aria-label="Сеанс персонального массажа">
-            <img
-              className="hero-image"
-              src="./images/hero-main.webp"
-              alt="Александра проводит сеанс массажа в уютном кабинете"
-              width="941"
-              height="1672"
-              fetchPriority="high"
-            />
+            <div className="hero-portrait-frame">
+              <img
+                className="hero-image"
+                src="./images/hero-main.webp"
+                alt="Александра проводит сеанс массажа в уютном кабинете"
+                width="941"
+                height="1672"
+                fetchPriority="high"
+              />
+            </div>
             <div className="hero-photo-top" aria-hidden="true">
-              <span>Индивидуальный формат</span>
-              <span>Краснодар</span>
+              <span data-content="hero.badge_primary">Индивидуальный формат</span>
+              <span data-content="hero.badge_secondary">Краснодар</span>
             </div>
             <div className="hero-photo-caption">
               <p>
-                <strong>12 лет</strong>
-                <span>практики</span>
+                <strong data-content="hero.experience_value">12 лет</strong>
+                <span data-content="hero.experience_label">практики</span>
               </p>
-              <span>Один мастер и один посетитель — без потока</span>
+              <span data-content="hero.format_note">
+                Один мастер и один посетитель — без потока
+              </span>
             </div>
           </aside>
         </section>
@@ -340,30 +351,30 @@ export default function Home() {
           <div>
             <span className="fact-number">01</span>
             <p>
-              <strong>Зиповская, 36</strong>
-              <span>Краснодар</span>
+              <strong data-content="facts.0.title">Зиповская, 36</strong>
+              <span data-content="facts.0.subtitle">Краснодар</span>
             </p>
           </div>
           <div>
             <span className="fact-number">02</span>
             <p>
-              <strong>Ежедневно 10:00-21:00</strong>
-              <span>по предварительной записи</span>
+              <strong data-content="facts.1.title">Ежедневно 10:00-21:00</strong>
+              <span data-content="facts.1.subtitle">по предварительной записи</span>
             </p>
           </div>
           <div>
             <span className="fact-number">03</span>
             <p>
-              <strong>12 лет практики</strong>
-              <span>персональный подход к каждому сеансу</span>
+              <strong data-content="facts.2.title">12 лет практики</strong>
+              <span data-content="facts.2.subtitle">персональный подход к каждому сеансу</span>
             </p>
           </div>
         </section>
 
         <section className="section services" id="services">
           <div className="section-heading">
-            <h2>Понятный выбор без лишних обещаний</h2>
-            <p>
+            <h2 data-content="services_intro.title">Понятный выбор без лишних обещаний</h2>
+            <p data-content="services_intro.text">
               Итоговый формат определим после короткой консультации. Цена и
               длительность фиксируются до визита.
             </p>
@@ -374,8 +385,8 @@ export default function Home() {
               <article className="service-row" key={service.name}>
                 <span className="service-index">0{index + 1}</span>
                 <div className="service-copy">
-                  <h3>{service.name}</h3>
-                  <p>{service.description}</p>
+                  <h3 data-content={`services.${index}.name`}>{service.name}</h3>
+                  <p data-content={`services.${index}.description`}>{service.description}</p>
                   <a
                     className="service-cta"
                     href={telegramUrl}
@@ -387,15 +398,21 @@ export default function Home() {
                     <ArrowUpRightIcon />
                   </a>
                 </div>
-                <span className="service-duration">{service.duration}</span>
-                <strong className="service-price">{service.price}</strong>
+                <span className="service-duration" data-content={`services.${index}.duration`}>
+                  {service.duration}
+                </span>
+                <strong className="service-price" data-content={`services.${index}.price`}>
+                  {service.price}
+                </strong>
               </article>
             ))}
           </div>
 
           <p className="service-footnote">
-            <strong>Не уверены в выборе?</strong> Опишите задачу мастеру, перед
-            записью уточним детали и подберём формат.
+            <strong data-content="services_intro.footnote_title">Не уверены в выборе?</strong>{" "}
+            <span data-content="services_intro.footnote_text">
+              Опишите задачу мастеру, перед записью уточним детали и подберём формат.
+            </span>
           </p>
         </section>
 
@@ -408,40 +425,42 @@ export default function Home() {
               height="1672"
               loading="lazy"
             />
-            <span className="approach-poster-caption">12 лет практики</span>
-            <p>Камерный массаж. Только для вас.</p>
+            <span className="approach-poster-caption" data-content="about.experience">
+              12 лет практики
+            </span>
+            <p data-content="about.poster_title">Камерный массаж. Только для вас.</p>
             <div className="approach-poster-meta">
-              <span>Без потока</span>
-              <span>По записи</span>
-              <span>В диалоге</span>
+              <span data-content="about.poster_tag_1">Без потока</span>
+              <span data-content="about.poster_tag_2">По записи</span>
+              <span data-content="about.poster_tag_3">В диалоге</span>
             </div>
           </div>
           <div className="approach-copy">
-            <h2>Меня зовут Александра</h2>
-            <p className="large-copy">
+            <h2 data-content="about.title">Меня зовут Александра</h2>
+            <p className="large-copy" data-content="about.intro">
               Я выбрала камерный формат как альтернативу «конвейерному»
               массажу. Здесь нет одной схемы для всех — сеанс строится вокруг
               вашего текущего состояния, запроса и уровня комфорта.
             </p>
-            <p className="approach-detail">
+            <p className="approach-detail" data-content="about.detail">
               За 12 лет практики я убедилась: качество работы начинается с
               внимательной консультации. Поэтому до записи мы обсуждаем
               самочувствие и ограничения, а во время сеанса остаёмся в диалоге.
             </p>
             <blockquote>
-              <p>
+              <p data-content="about.quote">
                 Мне важно не просто проработать напряжённую зону, а вернуть вам
                 ощущение лёгкости и внутреннего покоя.
               </p>
-              <footer>Александра, мастер массажа</footer>
+              <footer data-content="about.quote_author">Александра, мастер массажа</footer>
             </blockquote>
           </div>
         </section>
 
         <section className="section visit">
           <div className="visit-intro">
-            <h2>Как всё проходит</h2>
-            <p>От первого сообщения до спокойного завершения визита.</p>
+            <h2 data-content="visit.title">Как всё проходит</h2>
+            <p data-content="visit.lead">От первого сообщения до спокойного завершения визита.</p>
             <div className="visit-progress" aria-hidden="true">
               <span>01</span>
               <i />
@@ -455,15 +474,17 @@ export default function Home() {
                 height="1672"
                 loading="lazy"
               />
-              <figcaption>Кабинет готовится к каждому визиту</figcaption>
+              <figcaption data-content="visit.photo_caption">
+                Кабинет готовится к каждому визиту
+              </figcaption>
             </figure>
           </div>
           <div className="visit-steps">
-            {visitSteps.map((step) => (
+            {visitSteps.map((step, index) => (
               <article key={step.number}>
                 <span>{step.number}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
+                <h3 data-content={`visit.steps.${index}.title`}>{step.title}</h3>
+                <p data-content={`visit.steps.${index}.text`}>{step.text}</p>
               </article>
             ))}
           </div>
@@ -471,14 +492,16 @@ export default function Home() {
 
         <section className="section included">
           <div className="included-copy">
-            <h2>Вам остаётся только прийти</h2>
+            <h2 data-content="included.title">Вам остаётся только прийти</h2>
             <ul>
-              {included.map((item) => (
+              {included.map((item, index) => (
                 <li key={item}>
-                  <span>
+                  <span className="included-check">
                     <CheckIcon />
                   </span>
-                  {item}
+                  <span className="included-label" data-content={`included.items.${index}`}>
+                    {item}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -492,16 +515,18 @@ export default function Home() {
               loading="lazy"
             />
             <div className="included-aside-caption">
-              <p>Всё готово к вашему визиту.</p>
-              <span>Полотенца, пледы, масла, вода и время спокойно собраться после сеанса.</span>
+              <p data-content="included.image_title">Всё готово к вашему визиту.</p>
+              <span data-content="included.image_text">
+                Полотенца, пледы, масла, вода и время спокойно собраться после сеанса.
+              </span>
             </div>
           </div>
         </section>
 
         <section className="section space" id="space">
           <div className="section-heading space-heading">
-            <h2>Тихое место, где можно выдохнуть</h2>
-            <p>
+            <h2 data-content="space.title">Тихое место, где можно выдохнуть</h2>
+            <p data-content="space.lead">
               Чисто, тепло и без посторонних во время вашего визита.
             </p>
           </div>
@@ -514,7 +539,7 @@ export default function Home() {
                 height="1672"
                 loading="lazy"
               />
-              <figcaption>Тёплый свет</figcaption>
+              <figcaption data-content="space.gallery_caption_1">Тёплый свет</figcaption>
             </figure>
             <figure>
               <img
@@ -524,7 +549,7 @@ export default function Home() {
                 height="1672"
                 loading="lazy"
               />
-              <figcaption>Только один посетитель</figcaption>
+              <figcaption data-content="space.gallery_caption_2">Только один посетитель</figcaption>
             </figure>
             <figure>
               <img
@@ -534,27 +559,34 @@ export default function Home() {
                 height="1672"
                 loading="lazy"
               />
-              <figcaption>Время выдохнуть</figcaption>
+              <figcaption data-content="space.gallery_caption_3">Время выдохнуть</figcaption>
             </figure>
           </div>
           <div className="space-grid">
             <article>
-              <strong>Чисто</strong>
-              <p>Одноразовые материалы и свежий текстиль для каждого визита.</p>
+              <strong data-content="space.facts.0.title">Чисто</strong>
+              <p data-content="space.facts.0.text">
+                Одноразовые материалы и свежий текстиль для каждого визита.
+              </p>
             </article>
             <article>
-              <strong>Тепло</strong>
-              <p>Спокойная атмосфера и время, чтобы прийти в себя после сеанса.</p>
+              <strong data-content="space.facts.1.title">Тепло</strong>
+              <p data-content="space.facts.1.text">
+                Спокойная атмосфера и время, чтобы прийти в себя после сеанса.
+              </p>
             </article>
             <article>
-              <strong>Парковка</strong>
-              <p>Рядом с домом есть парковка. Детали можно уточнить перед визитом.</p>
+              <strong data-content="space.facts.2.title">Парковка</strong>
+              <p data-content="space.facts.2.text">
+                Рядом с домом есть парковка. Детали можно уточнить перед визитом.
+              </p>
             </article>
             <article className="space-address">
-              <span>Краснодар</span>
-              <strong>ул. Зиповская, 36</strong>
+              <span data-content="space.city">Краснодар</span>
+              <strong data-content="space.address">ул. Зиповская, 36</strong>
               <a href={routeUrl} target="_blank" rel="noopener noreferrer">
-                Построить маршрут <ArrowUpRightIcon />
+                <span data-content="space.route_cta">Построить маршрут</span>
+                <ArrowUpRightIcon />
               </a>
             </article>
           </div>
@@ -567,18 +599,18 @@ export default function Home() {
 
         <section className="section faq" id="faq">
           <div className="section-heading compact">
-            <h2>Частые вопросы</h2>
+            <h2 data-content="faq.title">Частые вопросы</h2>
           </div>
           <div className="faq-list">
             {faqs.map((faq, index) => (
               <details key={faq.question} open={index === 0}>
                 <summary>
-                  <span>{faq.question}</span>
+                  <span data-content={`faq.items.${index}.question`}>{faq.question}</span>
                   <span className="faq-plus" aria-hidden="true">
                     <PlusIcon />
                   </span>
                 </summary>
-                <p>{faq.answer}</p>
+                <p data-content={`faq.items.${index}.answer`}>{faq.answer}</p>
               </details>
             ))}
           </div>
@@ -586,8 +618,8 @@ export default function Home() {
 
         <section className="contact" id="contact">
           <div className="contact-copy">
-            <h2>Расскажите, как вы себя чувствуете</h2>
-            <p>
+            <h2 data-content="contact.title">Расскажите, как вы себя чувствуете</h2>
+            <p data-content="contact.lead">
               В Telegram или MAX обсудим запрос, подберём услугу и согласуем
               удобное время. Без формы, звонков от администратора и рассылок.
             </p>
@@ -599,7 +631,7 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 <TelegramIcon />
-                Написать в Telegram
+                <span data-content="contact.telegram_cta">Написать в Telegram</span>
                 <ArrowUpRightIcon />
               </a>
               <a
@@ -608,30 +640,35 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Написать в MAX
+                <span data-content="contact.max_cta">Написать в MAX</span>
                 <ArrowUpRightIcon />
               </a>
             </div>
           </div>
           <address className="contact-details">
             <div>
-              <span>Адрес</span>
-              <strong>Краснодар, ул. Зиповская, 36</strong>
+              <span data-content="contact.address_label">Адрес</span>
+              <strong data-content="contact.address">Краснодар, ул. Зиповская, 36</strong>
               <a href={routeUrl} target="_blank" rel="noopener noreferrer">
-                Построить маршрут <ArrowUpRightIcon />
+                <span data-content="contact.route_cta">Построить маршрут</span>
+                <ArrowUpRightIcon />
               </a>
             </div>
             <div>
-              <span>Время работы</span>
-              <strong>Ежедневно, 10:00-21:00</strong>
-              <small>по предварительной записи</small>
+              <span data-content="contact.hours_label">Время работы</span>
+              <strong data-content="contact.hours">Ежедневно, 10:00-21:00</strong>
+              <small data-content="contact.hours_note">по предварительной записи</small>
             </div>
             <div>
-              <span>Контакты</span>
-              <a className="contact-primary" href="tel:+79883879887">
+              <span data-content="contact.contacts_label">Контакты</span>
+              <a className="contact-primary" href="tel:+79883879887" data-content="contact.phone">
                 8 (988) 387-98-87
               </a>
-              <a className="contact-secondary" href="mailto:sandra.massage.krd@gmail.com">
+              <a
+                className="contact-secondary"
+                href="mailto:sandra.massage.krd@gmail.com"
+                data-content="contact.email"
+              >
                 sandra.massage.krd@gmail.com
               </a>
               <a
@@ -639,6 +676,7 @@ export default function Home() {
                 href={telegramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-content="contact.telegram"
               >
                 Telegram: @sandra_massage
               </a>
@@ -647,6 +685,7 @@ export default function Home() {
                 href={maxUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-content="contact.max"
               >
                 MAX: написать мастеру
               </a>
@@ -661,15 +700,15 @@ export default function Home() {
             <MonogramIcon />
           </span>
           <p>
-            <strong>Александра</strong>
-            <span>массаж в Краснодаре</span>
+            <strong data-content="footer.brand">Александра</strong>
+            <span data-content="footer.subtitle">массаж в Краснодаре</span>
           </p>
         </div>
-        <p className="footer-note">
+        <p className="footer-note" data-content="footer.medical">
           Услуги не являются медицинскими. При наличии противопоказаний нужна
           консультация врача.
         </p>
-        <p className="footer-data">
+        <p className="footer-data" data-content="footer.privacy">
           Сайт не использует формы и аналитику. Яндекс-виджет и связанные с ним
           cookies загружаются только после вашего отдельного согласия.
         </p>
@@ -682,8 +721,10 @@ export default function Home() {
         rel="noopener noreferrer"
       >
         <TelegramIcon />
-        Записаться
+        <span data-content="common.book">Записаться</span>
       </a>
+
+      <script src="./js/site-content.js" defer data-site-content />
     </>
   );
 }

@@ -15,6 +15,7 @@ Calm editorial landing page for a private massage practice. Approved photography
 ## Layout
 
 - Desktop uses asymmetric editorial splits and full-width section fields.
+- The hero portrait sits inside a smaller double cream arch frame on a warm brown field; it remains the focal point without dominating the entire first screen.
 - Mobile collapses every split to one readable column without horizontal scrolling.
 - Pricing remains in scan-friendly rows; the visit process uses a sticky editorial sequence on desktop and a compact vertical sequence on mobile.
 
@@ -29,4 +30,4 @@ Calm editorial landing page for a private massage practice. Approved photography
 
 ## Image policy
 
-All seven approved photos are rendered with responsive `object-fit: cover` crops. Photo 7 leads the hero; photos 1–6 are distributed across the about, visit, included and space sections. Gradients and compact captions protect text contrast without hiding the atmosphere of each frame.
+All seven approved photos are rendered with responsive `object-fit: cover` crops. Photo 7 leads the hero inside a portrait frame; photos 1–6 are distributed across the about, visit, included and space sections. Gradients and compact captions protect text contrast without hiding the atmosphere of each frame.

@@ -41,6 +41,9 @@ The practice is presented as personal, unhurried work that starts with a consult
 - Requirements from the supplied 152-FZ internal standard apply.
 - The verified Yandex Maps organization card is https://yandex.ru/maps/org/studiya_massazha_i_spa/181183854833/.
 - The reviews iframe is created only after an unchecked consent control is selected and the visitor presses the load button. The choice is not persisted.
+- Public copy is read from `public/content/site.json`; the static HTML remains a fail-safe if that file is temporarily unavailable.
+- The text editor is a PHP endpoint intended for the Reg.ru production host. GitHub Pages exposes only a non-functional preview because it cannot execute server code.
+- Admin credentials and rate-limit secrets live outside the public document root and are excluded from version control.
 - A final logo and final business name were not supplied.
 - The earlier name `Reborn` is not used because the client indicated it needs reconsideration.
 
@@ -67,6 +70,7 @@ The practice is presented as personal, unhurried work that starts with a consult
 - Explain the first visit and consultation without information overload.
 - Keep claims factual and avoid promises about medical outcomes.
 - Minimize data handling and external services.
+- Keep the production host, backups and server-side configuration in the Russian Federation.
 
 ## Accessibility & Inclusion
 

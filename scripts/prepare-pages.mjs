@@ -1,4 +1,5 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 
 const outputDirectory = path.resolve("dist/client");
@@ -11,7 +12,8 @@ html = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, (script) => {
   const openingTag = script.match(/^<script\b[^>]*>/i)?.[0] ?? "";
 
   return /type=["']application\/ld\+json["']/i.test(openingTag) ||
-    /\bdata-external-consent(?:=["'][^"']*["'])?/i.test(openingTag)
+    /\bdata-external-consent(?:=["'][^"']*["'])?/i.test(openingTag) ||
+    /\bdata-site-content(?:=["'][^"']*["'])?/i.test(openingTag)
     ? script
     : "";
 });
@@ -27,6 +29,18 @@ html = html
 
 await writeFile(htmlPath, html);
 
+const inlineScriptHashes = [...html.matchAll(/<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)]
+  .map((match) => createHash("sha256").update(match[1]).digest("base64"))
+  .map((hash) => `'sha256-${hash}'`)
+  .join(" ");
+
+const htaccessPath = path.join(outputDirectory, ".htaccess");
+const htaccess = await readFile(htaccessPath, "utf8");
+await writeFile(
+  htaccessPath,
+  htaccess.replace("__INLINE_SCRIPT_HASHES__", inlineScriptHashes),
+);
+
 for (const filename of await readdir(cssDirectory)) {
   if (!filename.endsWith(".css")) continue;
 
@@ -40,4 +54,4 @@ for (const filename of await readdir(cssDirectory)) {
   await writeFile(cssPath, portableCss);
 }
 
-console.log("Prepared a privacy-gated, relative-path build for GitHub Pages.");
+console.log("Prepared a privacy-gated, CSP-hardened relative build for GitHub Pages.");

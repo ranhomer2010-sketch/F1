@@ -20,6 +20,13 @@ export default function RootLayout({
     <html lang="ru">
       <head>
         <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+        <link
+          rel="preload"
+          as="image"
+          href="./images/hero-main.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
       </head>
       <body className="antialiased">{children}</body>
     </html>

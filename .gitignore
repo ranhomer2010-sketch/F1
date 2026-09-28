@@ -44,3 +44,5 @@ next-env.d.ts
 /.codex/
 /outputs/
 /work/
+/private/admin-config.php
+/public/private/admin-config.php
