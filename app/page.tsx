@@ -3,25 +3,29 @@ import { YandexReviews } from "@/components/yandex-reviews";
 const services = [
   {
     name: "Классический массаж",
-    description: "Проработка основных мышечных групп для тонуса и восстановления.",
+    description:
+      "Когда хочется снять общую скованность, вернуть мышцам тонус и почувствовать больше лёгкости в движении.",
     duration: "60 мин",
     price: "3 000 ₽",
   },
   {
     name: "Массаж спины",
-    description: "Внимание к шейно-воротниковой зоне, спине и пояснице.",
+    description:
+      "Когда устали шея, плечи, спина или поясница — акцент на зонах, где накопилось напряжение.",
     duration: "40-60 мин",
     price: "2 500-3 000 ₽",
   },
   {
     name: "Расслабляющий массаж",
-    description: "Мягкий ритм, который помогает снизить напряжение и замедлиться.",
+    description:
+      "Чтобы замедлиться, восстановиться после стресса и настроиться на более спокойный отдых.",
     duration: "60 мин",
     price: "3 000 ₽",
   },
   {
     name: "SPA-программы",
-    description: "Уходовые ритуалы для тела. Состав программы подберём в переписке.",
+    description:
+      "Для ощущения лёгкости, ухода за телом и глубокого расслабления. Состав программы обсудим до визита.",
     duration: "по программе",
     price: "от 3 000 ₽",
   },
@@ -35,8 +39,8 @@ const visitSteps = [
   },
   {
     number: "02",
-    title: "Выбираем формат",
-    text: "Согласуем вид массажа, длительность, интенсивность и удобное время визита.",
+    title: "Определяем задачу",
+    text: "Согласуем желаемый результат, вид массажа, длительность, интенсивность и удобное время визита.",
   },
   {
     number: "03",
@@ -52,7 +56,7 @@ const visitSteps = [
 
 const included = [
   "Консультация перед сеансом",
-  "Индивидуально выстроенный формат",
+  "Программа с учётом вашего запроса",
   "Профессиональные масла и уходовые средства",
   "Чистые полотенца, пледы и вода",
   "Рекомендации после сеанса",
@@ -82,7 +86,7 @@ const faqs = [
   {
     question: "Что взять с собой?",
     answer:
-      "Ничего специального. Полотенца, пледы, профессиональные масла и вода уже подготовлены. Индивидуальные пожелания по средствам можно заранее обсудить в переписке.",
+      "Ничего специального. Полотенца, пледы, профессиональные масла и вода уже подготовлены. Особые пожелания по средствам можно заранее обсудить в переписке.",
   },
   {
     question: "Можно ли прийти с острой болью?",
@@ -220,7 +224,7 @@ export default function Home() {
     "@type": "HealthAndBeautyBusiness",
     name: "Массажный кабинет Александры",
     description:
-      "Персональный массаж в Краснодаре. Александра, 12 лет практики, только по предварительной записи.",
+      "Массаж в Краснодаре для снятия мышечного напряжения, глубокого расслабления и ощущения лёгкости. Александра, 12 лет практики.",
     telephone: "+79883879887",
     email: "sandra.massage.krd@gmail.com",
     address: {
@@ -279,15 +283,15 @@ export default function Home() {
           <div className="hero-copy">
             <h1>
               <span className="hero-title-primary" data-content="hero.title_primary">
-                Персональный массаж.
+                Легче телу.
               </span>
               <span className="hero-title-accent" data-content="hero.title_accent">
-                В вашем ритме.
+                Спокойнее вам.
               </span>
             </h1>
             <p className="hero-lead" data-content="hero.lead">
-              Сначала разберёмся, что нужно именно вам. Затем подберём технику,
-              интенсивность и продолжительность сеанса.
+              Массажные программы для снятия мышечного напряжения, глубокого
+              расслабления и восстановления после нагрузки и стресса.
             </p>
             <div className="hero-meta" aria-label="Адрес и время работы">
               <span>
@@ -307,7 +311,7 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 <TelegramIcon />
-                <span data-content="hero.primary_cta">Написать мастеру</span>
+                <span data-content="hero.primary_cta">Подобрать программу</span>
                 <ArrowUpRightIcon />
               </a>
               <a className="text-link" href="#services">
@@ -316,11 +320,11 @@ export default function Home() {
               </a>
             </div>
             <p className="hero-note" data-content="hero.note">
-              Ответим в Telegram и поможем выбрать формат.
+              Ответим в Telegram и уточним, какого результата вы хотите.
             </p>
           </div>
 
-          <aside className="hero-visual" aria-label="Сеанс персонального массажа">
+          <aside className="hero-visual" aria-label="Александра проводит сеанс массажа">
             <div className="hero-portrait-frame">
               <img
                 className="hero-image"
@@ -332,7 +336,7 @@ export default function Home() {
               />
             </div>
             <div className="hero-photo-top" aria-hidden="true">
-              <span data-content="hero.badge_primary">Индивидуальный формат</span>
+              <span data-content="hero.badge_primary">Под ваш запрос</span>
               <span data-content="hero.badge_secondary">Краснодар</span>
             </div>
             <div className="hero-photo-caption">
@@ -351,32 +355,32 @@ export default function Home() {
           <div>
             <span className="fact-number">01</span>
             <p>
-              <strong data-content="facts.0.title">Зиповская, 36</strong>
-              <span data-content="facts.0.subtitle">Краснодар</span>
+              <strong data-content="facts.0.title">Снять напряжение</strong>
+              <span data-content="facts.0.subtitle">в мышцах после нагрузки и долгого дня</span>
             </p>
           </div>
           <div>
             <span className="fact-number">02</span>
             <p>
-              <strong data-content="facts.1.title">Ежедневно 10:00-21:00</strong>
-              <span data-content="facts.1.subtitle">по предварительной записи</span>
+              <strong data-content="facts.1.title">Глубоко расслабиться</strong>
+              <span data-content="facts.1.subtitle">дать телу и мыслям время на восстановление</span>
             </p>
           </div>
           <div>
             <span className="fact-number">03</span>
             <p>
-              <strong data-content="facts.2.title">12 лет практики</strong>
-              <span data-content="facts.2.subtitle">персональный подход к каждому сеансу</span>
+              <strong data-content="facts.2.title">Почувствовать лёгкость</strong>
+              <span data-content="facts.2.subtitle">после расслабляющих и SPA-программ</span>
             </p>
           </div>
         </section>
 
         <section className="section services" id="services">
           <div className="section-heading">
-            <h2 data-content="services_intro.title">Понятный выбор без лишних обещаний</h2>
+            <h2 data-content="services_intro.title">Выберите результат, который нужен сейчас</h2>
             <p data-content="services_intro.text">
-              Итоговый формат определим после короткой консультации. Цена и
-              длительность фиксируются до визита.
+              Расскажите, что беспокоит и как хотите чувствовать себя после сеанса.
+              Подходящую программу, цену и длительность согласуем до визита.
             </p>
           </div>
 
@@ -392,9 +396,9 @@ export default function Home() {
                     href={telegramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Уточнить формат: ${service.name}`}
+                    aria-label={`Обсудить программу: ${service.name}`}
                   >
-                    Уточнить формат
+                    Обсудить программу
                     <ArrowUpRightIcon />
                   </a>
                 </div>
@@ -411,7 +415,7 @@ export default function Home() {
           <p className="service-footnote">
             <strong data-content="services_intro.footnote_title">Не уверены в выборе?</strong>{" "}
             <span data-content="services_intro.footnote_text">
-              Опишите задачу мастеру, перед записью уточним детали и подберём формат.
+              Опишите желаемый результат мастеру — перед записью уточним детали и подберём программу.
             </span>
           </p>
         </section>
@@ -438,9 +442,9 @@ export default function Home() {
           <div className="approach-copy">
             <h2 data-content="about.title">Меня зовут Александра</h2>
             <p className="large-copy" data-content="about.intro">
-              Я выбрала камерный формат как альтернативу «конвейерному»
-              массажу. Здесь нет одной схемы для всех — сеанс строится вокруг
-              вашего текущего состояния, запроса и уровня комфорта.
+              Ко мне приходят, когда тело устало от нагрузки, шея и спина остаются
+              напряжёнными, а мыслям трудно замедлиться. Цель сеанса — вернуть
+              ощущение лёгкости, спокойствия и свободы движения.
             </p>
             <p className="approach-detail" data-content="about.detail">
               За 12 лет практики я убедилась: качество работы начинается с

@@ -6,7 +6,7 @@ Single-route marketing page. Visitor mode: Persuade.
 
 ## Audience, job and action
 
-People in Krasnodar deciding whether a private massage format feels clear, safe and suitable. They compare session types and prices, understand the consultation and visit rules, then open Telegram to book.
+People in Krasnodar who want less muscular tension, deeper relaxation or a lighter feeling after a massage. They compare session types and prices, understand the consultation and visit rules, then open Telegram to book.
 
 ## Proof and constraints
 
@@ -14,13 +14,13 @@ Use only the supplied room, detail and process photos plus confirmed brief copy.
 
 ## Direction contract
 
-THESIS: Personal massage without the generic beige spa template; real space and specific process lead.
+THESIS: The desired feeling after massage leads; the real space and clear process make that result credible without medical promises.
 
 OWN-WORLD: Warm gray, cream, dusty blush, clay and deep brown fields; soft 16px corners; bold Manrope headlines; rare supported Archivo and Original Surfer accents; Manrope everywhere functional.
 
-STORY: Recognize the offer, compare sessions, trust the consultation, picture the visit, open Telegram.
+STORY: Recognize the desired result, compare sessions, trust the consultation, picture the visit, open Telegram.
 
-FIRST VIEWPORT: Left-aligned two-line promise and action occupy 55%; a tall typographic poster with the animated `A` monogram anchors the right; address and hours remain visible without scrolling.
+FIRST VIEWPORT: A two-line result-led promise and action occupy 55%; Alexandra's portrait sits in a smaller double cream arch frame on the right; address and hours remain visible without scrolling.
 
 FORM: Asymmetric editorial split, strongest grounded form from seed `67703a53`; signature interaction is a single calm monogram draw tied to the first-screen reveal.
 

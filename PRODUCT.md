@@ -20,7 +20,7 @@ Present the private massage practice clearly and lead an interested visitor into
 
 ## Positioning
 
-The practice is presented as personal, unhurried work that starts with a consultation and adapts the session to the visitor instead of following one fixed routine.
+The practice is presented through outcomes the visitor can understand: less muscular tension, deeper relaxation and a lighter feeling after the session. Consultation remains the way Alexandra selects the appropriate program without making guaranteed medical claims.
 
 ## Operating Context
 
@@ -65,7 +65,8 @@ The practice is presented as personal, unhurried work that starts with a consult
 
 ## Product Principles
 
-- Make the offer, price and booking action clear within seconds.
+- Make the desired outcome, price and booking action clear within seconds.
+- Lead with how the visitor wants to feel after the session, then explain the process that supports it.
 - Use all seven client-approved photographs in context: process imagery for the hero and visit flow, room imagery for the practice and space sections, and the detail image for visit preparation.
 - Explain the first visit and consultation without information overload.
 - Keep claims factual and avoid promises about medical outcomes.
