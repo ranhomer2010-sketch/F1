@@ -55,7 +55,7 @@ The practice is presented as personal, unhurried work that starts with a consult
 
 - Current client brief: `/workspace/scratch/77021f8cd59d/upload/Бриф_для_сайта_массажа.docx`.
 - Competitor analysis based on 42 websites: `/workspace/scratch/77021f8cd59d/upload/Анализ_ниши_массажных_салонов (1).pdf`.
-- Six supplied photos of the room, details and massage process in `/workspace/scratch/77021f8cd59d/upload/`.
+- Seven supplied photos of the room, details and massage process in `/workspace/scratch/77021f8cd59d/upload/`; photo 7 is approved for the hero section.
 - One client-message screenshot confirming that the old name needs replacement.
 - The client confirmed Alexandra's 12 years of practice, personal biography, consultation flow, preparation rules, parking and MAX contact.
 - The Yandex organization card is verified and may provide reviews after opt-in. No separate testimonial copy, qualifications or final business name were supplied; the website must not fabricate them.
@@ -63,7 +63,7 @@ The practice is presented as personal, unhurried work that starts with a consult
 ## Product Principles
 
 - Make the offer, price and booking action clear within seconds.
-- Use only approved real photography; keep the current review version photo-free until suitable images are selected.
+- Use only client-approved photography. Photo 7 is the current hero image; the rest of the page stays photo-free until more images are selected.
 - Explain the first visit and consultation without information overload.
 - Keep claims factual and avoid promises about medical outcomes.
 - Minimize data handling and external services.

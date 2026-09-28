@@ -313,19 +313,25 @@ export default function Home() {
             <p className="hero-note">Ответим в Telegram и поможем выбрать формат.</p>
           </div>
 
-          <aside className="hero-visual" aria-label="Индивидуальный формат массажа">
-            <MonogramIcon className="hero-monogram" />
-            <div className="hero-poster-top">
+          <aside className="hero-visual" aria-label="Сеанс персонального массажа">
+            <img
+              className="hero-image"
+              src="./images/hero-main.webp"
+              alt="Александра проводит сеанс массажа в уютном кабинете"
+              width="941"
+              height="1672"
+              fetchPriority="high"
+            />
+            <div className="hero-photo-top" aria-hidden="true">
               <span>Индивидуальный формат</span>
               <span>Краснодар</span>
             </div>
-            <div className="hero-poster-time">
-              <strong>1:1</strong>
-              <span>один мастер и один посетитель — без потока</span>
-            </div>
-            <div className="hero-poster-bottom">
-              <p>Спокойно. Понятно. В комфортном для вас темпе.</p>
-              <span className="surfer">для вас</span>
+            <div className="hero-photo-caption">
+              <p>
+                <strong>12 лет</strong>
+                <span>практики</span>
+              </p>
+              <span>Один мастер и один посетитель — без потока</span>
             </div>
           </aside>
         </section>

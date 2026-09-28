@@ -2,7 +2,7 @@
 
 ## Direction
 
-Calm editorial landing page for a private massage practice. The current review version is intentionally photo-free: typography, spacing and a warm mineral palette carry the visual hierarchy until approved photography is available.
+Calm editorial landing page for a private massage practice. The hero combines approved photo 7 with restrained typography; spacing and the warm mineral palette carry the rest of the visual hierarchy.
 
 ## Visual language
 
@@ -21,12 +21,12 @@ Calm editorial landing page for a private massage practice. The current review v
 ## Interaction
 
 - Telegram is the primary action throughout the page; MAX is the secondary booking route in the contact section.
-- The trust section is typographic while photography is paused: Alexandra's confirmed 12 years of practice anchors the composition.
-- Motion is limited to the first-screen monogram reveal and subtle hover/focus feedback.
+- The trust section stays typographic: Alexandra's confirmed 12 years of practice anchors the composition.
+- Motion is limited to a restrained first-screen image reveal and subtle hover/focus feedback.
 - Service rows expose a contextual Telegram action without turning the whole row into a hidden link.
 - Yandex reviews use a dedicated consent surface. The external iframe does not exist in the document until the visitor checks the consent box and presses the load button.
 - Focus rings, reduced-motion preferences and touch-sized controls are preserved.
 
 ## Image policy
 
-No photographs are rendered in the current version. Existing local assets remain in the project so approved replacements can be restored without changing the page architecture.
+Photo 7 is rendered as the main hero image with a responsive `object-fit: cover` crop. Other photographs are not rendered until the client approves their placement.

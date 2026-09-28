@@ -361,11 +361,7 @@ summary {
 
 .hero-visual {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   min-height: 590px;
-  padding: clamp(34px, 4.5vw, 68px);
   overflow: hidden;
   background: var(--ink);
   color: var(--paper);
@@ -375,93 +371,86 @@ summary {
 .hero-visual::before {
   position: absolute;
   z-index: 1;
-  top: 22px;
-  right: 22px;
-  width: 16px;
-  height: 16px;
-  border: 7px solid var(--blush);
-  border-radius: 50%;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(35 20 15 / 0.24) 0%, transparent 30%),
+    linear-gradient(0deg, rgb(35 20 15 / 0.3) 0%, transparent 34%);
   content: "";
+  pointer-events: none;
 }
 
-.hero-monogram {
+.hero-image {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(72%, 480px);
-  color: var(--blush);
-  opacity: 0.48;
-  stroke-width: 4.5;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 48%;
 }
 
-.hero-monogram path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: monogram-draw 1400ms 360ms var(--ease-out) forwards;
-}
-
-.hero-monogram .monogram-crossbar {
-  animation-delay: 620ms;
-}
-
-.hero-poster-top,
-.hero-poster-bottom {
+.hero-photo-top {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
-  gap: 28px;
-  font-size: 0.76rem;
+  gap: 12px;
+  padding: clamp(24px, 3vw, 36px);
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.hero-poster-time {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  align-items: end;
-  grid-template-columns: auto minmax(130px, 210px);
-  gap: clamp(18px, 3vw, 38px);
+.hero-photo-top span {
+  padding: 8px 12px;
+  border: 1px solid rgb(249 243 231 / 0.45);
+  border-radius: 999px;
+  background: rgb(81 56 51 / 0.42);
+  backdrop-filter: blur(8px);
 }
 
-.hero-poster-time strong {
-  font-size: clamp(5rem, 10vw, 6rem);
-  font-weight: 780;
-  letter-spacing: -0.04em;
-  line-height: 0.78;
-}
-
-.hero-poster-time > span {
-  max-width: 16ch;
-  padding-bottom: 4px;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  font-weight: 720;
-  line-height: 1.28;
-}
-
-.hero-poster-bottom {
+.hero-photo-caption {
+  position: absolute;
+  z-index: 2;
+  right: clamp(18px, 3vw, 32px);
+  bottom: clamp(18px, 3vw, 32px);
+  left: clamp(18px, 3vw, 32px);
+  display: flex;
   align-items: flex-end;
-  padding-top: 26px;
-  border-top: 1px solid color-mix(in srgb, var(--paper) 35%, transparent);
-  letter-spacing: 0;
-  text-transform: none;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 20px 22px;
+  border: 1px solid rgb(249 243 231 / 0.56);
+  border-radius: 12px;
+  background: rgb(249 243 231 / 0.88);
+  color: var(--ink);
+  backdrop-filter: blur(12px);
 }
 
-.hero-poster-bottom p {
-  max-width: 30ch;
+.hero-photo-caption p {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  white-space: nowrap;
 }
 
-.hero-poster-bottom .surfer {
-  font-family: "Original Surfer Local", Georgia, serif;
-  font-size: 1.6rem;
-  font-weight: 400;
-  white-space: nowrap;
+.hero-photo-caption strong {
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+.hero-photo-caption p span,
+.hero-photo-caption > span {
+  font-size: 0.72rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.hero-photo-caption > span {
+  max-width: 22ch;
+  text-align: right;
 }
 
 .quick-facts {
@@ -1696,21 +1685,27 @@ details[open] .faq-plus {
 
   .hero-visual {
     min-height: 520px;
-    padding: 30px 24px;
   }
 
-  .hero-poster-time {
-    grid-template-columns: 1fr;
+  .hero-photo-top {
+    padding: 20px;
   }
 
-  .hero-poster-time strong {
-    font-size: 6rem;
+  .hero-photo-top span {
+    padding: 7px 10px;
+    font-size: 0.62rem;
   }
 
-  .hero-poster-bottom {
+  .hero-photo-caption {
     align-items: flex-start;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
+    padding: 18px;
+  }
+
+  .hero-photo-caption > span {
+    max-width: 28ch;
+    text-align: left;
   }
 
   .section,
