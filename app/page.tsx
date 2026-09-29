@@ -424,7 +424,7 @@ export default function Home() {
           <div className="approach-poster">
             <img
               src="./images/photo-01-room.webp"
-              alt="Подготовленный массажный кабинет с мягким светом и зеленью"
+              alt="Подготовленный массажный кабинет с мягким тёплым светом"
               width="941"
               height="1672"
               loading="lazy"
@@ -538,7 +538,7 @@ export default function Home() {
             <figure>
               <img
                 src="./images/photo-03-room.webp"
-                alt="Массажный кабинет с подготовленным столом и зелёными растениями"
+                alt="Массажный кабинет с подготовленным столом и тёплым освещением"
                 width="941"
                 height="1672"
                 loading="lazy"

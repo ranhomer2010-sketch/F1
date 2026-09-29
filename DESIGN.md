@@ -30,4 +30,4 @@ Calm editorial landing page for a private massage practice. Approved photography
 
 ## Image policy
 
-All seven approved photos are rendered with responsive `object-fit: cover` crops. Photo 7 leads the hero inside a portrait frame; photos 1–6 are distributed across the about, visit, included and space sections. Gradients and compact captions protect text contrast without hiding the atmosphere of each frame.
+All seven approved photos are rendered with responsive `object-fit: cover` crops. Photo 7 leads the hero inside a portrait frame; photos 1–6 are distributed across the about, visit, included and space sections. The two revised room photographs use the client-approved cleaner styling with less greenery and fewer candles. Gradients and compact captions protect text contrast without hiding the atmosphere of each frame.
