@@ -18,7 +18,7 @@ THESIS: The desired feeling after massage leads; the real space and clear proces
 
 OWN-WORLD: Warm gray, cream, dusty blush, clay and deep brown fields; soft 16px corners; bold Manrope headlines; rare supported Archivo and Original Surfer accents; Manrope everywhere functional.
 
-STORY: Recognize the desired result, compare sessions, trust the consultation, picture the visit, open Telegram.
+STORY: Recognize the desired result, compare sessions, trust the consultation, understand how to book, picture the visit, open Telegram.
 
 FIRST VIEWPORT: A two-line result-led promise and action occupy 55%; Alexandra's portrait sits in a smaller double cream arch frame on the right; address and hours remain visible without scrolling.
 

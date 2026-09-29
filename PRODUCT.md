@@ -68,7 +68,7 @@ The practice is presented through outcomes the visitor can understand: less musc
 - Make the desired outcome, price and booking action clear within seconds.
 - Lead with how the visitor wants to feel after the session, then explain the process that supports it.
 - Use all seven client-approved photographs in context: process imagery for the hero and visit flow, room imagery for the practice and space sections, and the detail image for visit preparation.
-- Explain the first visit and consultation without information overload.
+- Explain booking, the first visit and consultation without information overload or loaded wording.
 - Keep claims factual and avoid promises about medical outcomes.
 - Minimize data handling and external services.
 - Keep the production host, backups and server-side configuration in the Russian Federation.

@@ -14,7 +14,7 @@ Calm editorial landing page for a private massage practice. Approved photography
 
 ## Layout
 
-- Desktop uses asymmetric editorial splits and full-width section fields.
+- Desktop uses asymmetric editorial splits and full-width section fields. The booking sequence is one continuous blush field with fine dividers instead of alternating color panels.
 - The hero portrait sits inside a smaller double cream arch frame on a warm brown field; it remains the focal point without dominating the entire first screen.
 - Mobile collapses every split to one readable column without horizontal scrolling.
 - Pricing remains in scan-friendly rows; the visit process uses a sticky editorial sequence on desktop and a compact vertical sequence on mobile.

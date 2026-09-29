@@ -35,7 +35,7 @@ const visitSteps = [
   {
     number: "01",
     title: "Обсуждаем запрос",
-    text: "В переписке или по голосовой связи уточняем самочувствие, пожелания и ограничения.",
+    text: "В переписке или по голосовой связи уточняем самочувствие, пожелания и важные особенности.",
   },
   {
     number: "02",
@@ -58,7 +58,7 @@ const included = [
   "Консультация перед сеансом",
   "Программа с учётом вашего запроса",
   "Профессиональные масла и уходовые средства",
-  "Чистые полотенца, пледы и вода",
+  "Чистый текстиль, пледы и вода",
   "Рекомендации после сеанса",
 ];
 
@@ -432,7 +432,7 @@ export default function Home() {
             <span className="approach-poster-caption" data-content="about.experience">
               12 лет практики
             </span>
-            <p data-content="about.poster_title">Камерный массаж. Только для вас.</p>
+            <p data-content="about.poster_title">Массаж в камерной атмосфере.</p>
             <div className="approach-poster-meta">
               <span data-content="about.poster_tag_1">Без потока</span>
               <span data-content="about.poster_tag_2">По записи</span>
@@ -440,16 +440,16 @@ export default function Home() {
             </div>
           </div>
           <div className="approach-copy">
-            <h2 data-content="about.title">Меня зовут Александра</h2>
+            <h2 data-content="about.title">Меня выбирают</h2>
             <p className="large-copy" data-content="about.intro">
-              Ко мне приходят, когда тело устало от нагрузки, шея и спина остаются
-              напряжёнными, а мыслям трудно замедлиться. Цель сеанса — вернуть
-              ощущение лёгкости, спокойствия и свободы движения.
+              Когда тело устало от нагрузки, шея и спина остаются напряжёнными,
+              а мыслям трудно замедлиться. Цель сеанса — вернуть ощущение лёгкости,
+              спокойствия и свободы движения.
             </p>
             <p className="approach-detail" data-content="about.detail">
               За 12 лет практики я убедилась: качество работы начинается с
               внимательной консультации. Поэтому до записи мы обсуждаем
-              самочувствие и ограничения, а во время сеанса остаёмся в диалоге.
+              самочувствие и пожелания, а во время сеанса остаёмся в диалоге.
             </p>
             <blockquote>
               <p data-content="about.quote">
@@ -463,8 +463,8 @@ export default function Home() {
 
         <section className="section visit">
           <div className="visit-intro">
-            <h2 data-content="visit.title">Как всё проходит</h2>
-            <p data-content="visit.lead">От первого сообщения до спокойного завершения визита.</p>
+            <h2 data-content="visit.title">Как записаться</h2>
+            <p data-content="visit.lead">От первого сообщения до спокойного завершения визита — четыре понятных шага.</p>
             <div className="visit-progress" aria-hidden="true">
               <span>01</span>
               <i />

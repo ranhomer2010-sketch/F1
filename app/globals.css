@@ -791,7 +791,7 @@ blockquote footer {
   grid-template-columns: minmax(240px, 0.68fr) minmax(0, 1.32fr);
   align-items: start;
   gap: clamp(40px, 8vw, 128px);
-  background: var(--paper);
+  background: var(--blush);
 }
 
 .visit-intro {
@@ -864,6 +864,7 @@ blockquote footer {
 .visit-steps {
   overflow: hidden;
   border-radius: var(--radius);
+  background: transparent;
 }
 
 .visit-steps article {
@@ -872,30 +873,17 @@ blockquote footer {
   justify-content: center;
   min-height: clamp(300px, 42vh, 430px);
   padding: clamp(40px, 6vw, 76px);
-  background: var(--canvas);
-}
-
-.visit-steps article:nth-child(2) {
-  background: var(--blush);
-}
-
-.visit-steps article:nth-child(3) {
-  background: var(--clay);
-  color: var(--paper);
-}
-
-.visit-steps article:nth-child(4) {
-  background: var(--ink);
-  color: var(--paper);
+  background: transparent;
+  color: var(--ink);
 }
 
 .visit-steps article:nth-child(n + 2) {
-  border-top: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--ink) 20%, transparent);
 }
 
 .visit-steps article:nth-child(n + 3) > span,
 .visit-steps article:nth-child(n + 3) p {
-  color: color-mix(in srgb, var(--paper) 82%, transparent);
+  color: var(--ink-soft);
 }
 
 .visit-steps h3 {
