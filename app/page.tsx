@@ -537,7 +537,7 @@ export default function Home() {
           <div className="space-gallery" aria-label="Фотографии кабинета">
             <figure>
               <img
-                src="./images/photo-03-room.webp"
+                src="./images/photo-03-room-v2.webp"
                 alt="Массажный кабинет с подготовленным столом и тёплым освещением"
                 width="941"
                 height="1672"
