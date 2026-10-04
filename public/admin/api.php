@@ -6,7 +6,10 @@ header('Cache-Control: no-store, max-age=0');
 header('Pragma: no-cache');
 header('X-Robots-Tag: noindex, nofollow, noarchive');
 header('X-Content-Type-Options: nosniff');
+header('X-Frame-Options: DENY');
 header('Referrer-Policy: no-referrer');
+header('Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()');
+header("Content-Security-Policy: default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'");
 
 function respond(array $payload, int $status = 200): never
 {
@@ -22,7 +25,6 @@ function loadAdminConfig(): array
         getenv('ALEXANDRA_ADMIN_CONFIG') ?: null,
         $documentRoot !== '' ? dirname($documentRoot) . '/private/alexandra-admin.php' : null,
         $documentRoot !== '' ? dirname($documentRoot) . '/private/admin-config.php' : null,
-        dirname(__DIR__) . '/private/admin-config.php',
     ]);
 
     foreach ($candidates as $candidate) {
@@ -109,11 +111,48 @@ function verifyPassword(string $password, array $passwordConfig): bool
     return hash_equals($expected, $actual);
 }
 
-function rateLimitPath(string $secret): string
+function validateAdminConfig(array $config, string $configPath): void
 {
+    $username = (string) ($config['username'] ?? '');
+    $password = (array) ($config['password'] ?? []);
+    $secret = (string) ($config['rate_limit_secret'] ?? '');
+    $sessionName = (string) ($config['session_name'] ?? '');
+    $documentRoot = realpath((string) ($_SERVER['DOCUMENT_ROOT'] ?? ''));
+    $realConfigPath = realpath($configPath);
+
+    if (
+        $username === '' ||
+        $username === 'replace-me' ||
+        ($password['algo'] ?? '') !== 'pbkdf2-sha256' ||
+        (int) ($password['iterations'] ?? 0) < 100000 ||
+        strlen((string) ($password['salt'] ?? '')) < 32 ||
+        strlen((string) ($password['hash'] ?? '')) !== 64 ||
+        strlen($secret) < 32 ||
+        $secret === 'change-me' ||
+        str_starts_with($secret, 'replace-') ||
+        !preg_match('/\A[A-Za-z][A-Za-z0-9_-]{0,63}\z/', $sessionName)
+    ) {
+        respond(['ok' => false, 'message' => 'Конфигурация админки заполнена небезопасно.'], 503);
+    }
+
+    if (
+        is_string($documentRoot) &&
+        is_string($realConfigPath) &&
+        str_starts_with($realConfigPath, rtrim($documentRoot, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR)
+    ) {
+        respond(['ok' => false, 'message' => 'Конфигурация админки должна находиться вне публичной папки.'], 503);
+    }
+}
+
+function rateLimitPath(string $privateDirectory, string $secret): string
+{
+    $rateLimitDirectory = $privateDirectory . '/rate-limits';
+    if (!is_dir($rateLimitDirectory) && !@mkdir($rateLimitDirectory, 0700, true) && !is_dir($rateLimitDirectory)) {
+        throw new RuntimeException('Cannot create rate-limit directory');
+    }
     $address = (string) ($_SERVER['REMOTE_ADDR'] ?? 'unknown');
     $fingerprint = hash_hmac('sha256', $address, $secret);
-    return rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'alexandra-admin-' . $fingerprint . '.json';
+    return $rateLimitDirectory . '/admin-' . $fingerprint . '.json';
 }
 
 function currentAttempts(string $path): array
@@ -129,7 +168,9 @@ function currentAttempts(string $path): array
 function registerFailedAttempt(string $path, array $attempts): void
 {
     $attempts[] = time();
-    file_put_contents($path, json_encode($attempts), LOCK_EX);
+    if (file_put_contents($path, json_encode($attempts), LOCK_EX) === false) {
+        throw new RuntimeException('Cannot persist rate limit');
+    }
     @chmod($path, 0600);
 }
 
@@ -197,8 +238,14 @@ function saveContent(string $contentFile, array $content, string $privateDirecto
 }
 
 [$config, $configPath] = loadAdminConfig();
+validateAdminConfig($config, $configPath);
 $privateDirectory = dirname($configPath);
-$isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+$isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (int) ($_SERVER['SERVER_PORT'] ?? 0) === 443;
+$remoteAddress = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
+$isLocalRequest = in_array($remoteAddress, ['127.0.0.1', '::1'], true);
+if (!$isHttps && !$isLocalRequest) {
+    respond(['ok' => false, 'message' => 'Админка доступна только по HTTPS.'], 403);
+}
 session_name((string) ($config['session_name'] ?? 'alexandra_admin'));
 session_set_cookie_params(['lifetime' => 0, 'path' => '/admin/', 'secure' => $isHttps, 'httponly' => true, 'samesite' => 'Strict']);
 ini_set('session.use_strict_mode', '1');
@@ -223,7 +270,7 @@ try {
     if ($action === 'login') {
         requirePost();
         $body = readJsonBody();
-        $ratePath = rateLimitPath((string) ($config['rate_limit_secret'] ?? 'change-me'));
+        $ratePath = rateLimitPath($privateDirectory, (string) $config['rate_limit_secret']);
         $attempts = currentAttempts($ratePath);
         if (count($attempts) >= 5) respond(['ok' => false, 'message' => 'Слишком много попыток. Повторите вход через 15 минут.'], 429);
         $username = (string) ($body['username'] ?? '');
@@ -269,7 +316,14 @@ try {
         $_SESSION = [];
         if (ini_get('session.use_cookies')) {
             $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'] ?? '', (bool) $params['secure'], (bool) $params['httponly']);
+            setcookie(session_name(), '', [
+                'expires' => time() - 42000,
+                'path' => $params['path'],
+                'domain' => $params['domain'] ?? '',
+                'secure' => (bool) $params['secure'],
+                'httponly' => true,
+                'samesite' => 'Strict',
+            ]);
         }
         session_destroy();
         respond(['ok' => true]);

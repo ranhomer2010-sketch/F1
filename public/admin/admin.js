@@ -57,6 +57,11 @@
     });
   };
 
+  const setBusy = (button, busy) => {
+    button.disabled = busy;
+    button.setAttribute("aria-busy", String(busy));
+  };
+
   const createField = (definition) => {
     const label = document.createElement("label");
     if (definition.type === "textarea") label.className = "field-wide";
@@ -119,7 +124,7 @@
     event.preventDefault();
     loginMessage.textContent = "";
     const button = loginForm.querySelector("button");
-    button.disabled = true;
+    setBusy(button, true);
     try {
       const formData = new FormData(loginForm);
       const payload = await request("login", {
@@ -137,7 +142,7 @@
         ? "Серверная часть недоступна на этом хостинге."
         : error.message;
     } finally {
-      button.disabled = false;
+      setBusy(button, false);
     }
   });
 
@@ -146,7 +151,7 @@
     const nextContent = structuredClone(content);
     new FormData(contentForm).forEach((value, path) => setValue(nextContent, path, String(value).trim()));
 
-    saveButton.disabled = true;
+    setBusy(saveButton, true);
     saveStatus.textContent = "Сохраняем…";
     try {
       const payload = await request("save", {
@@ -160,16 +165,20 @@
     } catch (error) {
       saveStatus.textContent = error.message;
     } finally {
-      saveButton.disabled = false;
+      setBusy(saveButton, false);
     }
   });
 
   logoutButton.addEventListener("click", async () => {
+    if (dirty && !window.confirm("Есть несохранённые изменения. Всё равно выйти?")) return;
+    setBusy(logoutButton, true);
     try {
       await request("logout", { method: "POST", body: "{}" });
     } finally {
       content = null;
       csrfToken = "";
+      dirty = false;
+      setBusy(logoutButton, false);
       showOnly(loginView);
     }
   });

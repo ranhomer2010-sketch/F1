@@ -36,8 +36,19 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Lint source
+        run: pnpm run lint
+
+      - name: Validate admin scripts
+        run: |
+          node --check public/admin/admin.js
+          php -l public/admin/api.php
+
       - name: Build static preview
         run: pnpm run build:pages
+
+      - name: Verify release
+        run: pnpm run verify:release
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

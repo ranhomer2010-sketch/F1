@@ -20,11 +20,26 @@
         <form data-login-form>
           <label>
             <span>Логин</span>
-            <input name="username" type="text" autocomplete="username" required />
+            <input
+              name="username"
+              type="text"
+              autocomplete="username"
+              autocapitalize="none"
+              spellcheck="false"
+              maxlength="128"
+              required
+            />
           </label>
           <label>
             <span>Пароль</span>
-            <input name="password" type="password" autocomplete="current-password" required />
+            <input
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              spellcheck="false"
+              maxlength="256"
+              required
+            />
           </label>
           <button type="submit">Войти</button>
         </form>
