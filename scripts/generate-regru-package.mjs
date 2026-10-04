@@ -1,8 +1,9 @@
-import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, cp, mkdir, readFile, writeFile } from "node:fs/promises";
 import { pbkdf2Sync, randomBytes, randomInt } from "node:crypto";
 import path from "node:path";
 
 const outputArgument = process.argv[2];
+const existingConfigArgument = process.argv[3];
 if (!outputArgument) {
   throw new Error("Usage: node scripts/generate-regru-package.mjs <new-output-directory>");
 }
@@ -31,7 +32,7 @@ const hash = pbkdf2Sync(password, salt, iterations, 32, "sha256").toString("hex"
 const rateLimitSecret = randomBytes(32).toString("hex");
 const sessionName = `alexandra_admin_${randomBytes(4).toString("hex")}`;
 
-const config = `<?php
+const generatedConfig = `<?php
 declare(strict_types=1);
 
 return [
@@ -48,20 +49,28 @@ return [
 ];
 `;
 
-const guide = `# Публикация на Reg.ru
+const guide = `# Публикация reborn-massage.ru на Reg.ru
 
 1. Включите SSL-сертификат для домена и дождитесь, пока HTTPS заработает.
 2. Загрузите содержимое папки public_html в публичную папку сайта на хостинге.
 3. Загрузите папку private рядом с public_html, но не внутрь неё.
 4. Для public_html/content/site.json разрешите PHP запись (обычно 0664).
 5. Для папки private разрешите владельцу сайта чтение и запись (обычно 0700 или 0750).
-6. Откройте https://ваш-домен/admin/ и войдите с выданными отдельно реквизитами.
+6. Откройте https://reborn-massage.ru/admin/ и войдите с выданными отдельно реквизитами.
 7. Измените тестовую строку, сохраните и проверьте обновление на главной странице.
 
 Не переносите исходники, историю Git или текстовый файл с паролем в public_html.
 `;
 
-await writeFile(path.join(privateRoot, "admin-config.php"), config, { mode: 0o600 });
+if (existingConfigArgument) {
+  await copyFile(path.resolve(existingConfigArgument), path.join(privateRoot, "admin-config.php"));
+} else {
+  await writeFile(path.join(privateRoot, "admin-config.php"), generatedConfig, { mode: 0o600 });
+}
 await writeFile(path.join(output, "DEPLOYMENT.md"), guide, { mode: 0o600 });
 
-console.log(JSON.stringify({ output, username, password }));
+console.log(JSON.stringify({
+  output,
+  username,
+  password: existingConfigArgument ? "unchanged" : password,
+}));

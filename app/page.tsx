@@ -223,6 +223,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "HealthAndBeautyBusiness",
     name: "Массажный кабинет Александры",
+    url: "https://reborn-massage.ru/",
     description:
       "Массаж в Краснодаре для снятия мышечного напряжения, глубокого расслабления и ощущения лёгкости. Александра, 12 лет практики.",
     telephone: "+79883879887",

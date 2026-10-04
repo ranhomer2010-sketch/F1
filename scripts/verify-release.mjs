@@ -7,6 +7,8 @@ const errors = [];
 const requiredFiles = [
   "index.html",
   ".htaccess",
+  "robots.txt",
+  "sitemap.xml",
   "content/site.json",
   "js/site-content.js",
   "js/yandex-reviews.js",
@@ -26,6 +28,8 @@ for (const file of requiredFiles) {
 const html = await readFile(path.join(root, "index.html"), "utf8");
 const content = JSON.parse(await readFile(path.join(root, "content/site.json"), "utf8"));
 const htaccess = await readFile(path.join(root, ".htaccess"), "utf8");
+const robots = await readFile(path.join(root, "robots.txt"), "utf8");
+const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");
 
 const getValue = (source, key) =>
   key.split(".").reduce((value, part) => (value == null ? undefined : value[part]), source);
@@ -54,6 +58,15 @@ if (/(?:href|src)=["']\/_next\//.test(html)) {
 }
 if (html.includes('rel="modulepreload"')) errors.push("unused module preload remains in index.html");
 if (htaccess.includes("__INLINE_SCRIPT_HASHES__")) errors.push("CSP hashes were not generated");
+
+const indexable = !/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html);
+if (indexable) {
+  if (!html.includes('href="https://reborn-massage.ru/"')) errors.push("production canonical URL is missing");
+  if (!robots.includes("Allow: /")) errors.push("production robots.txt does not allow indexing");
+  if (!sitemap.includes("https://reborn-massage.ru/")) errors.push("production sitemap URL is missing");
+} else if (!robots.includes("Disallow: /")) {
+  errors.push("preview robots.txt does not block indexing");
+}
 
 const publicEntries = await readdir(root);
 if (publicEntries.includes("private")) errors.push("private configuration directory leaked into public build");

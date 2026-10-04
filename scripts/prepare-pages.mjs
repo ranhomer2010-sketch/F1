@@ -7,6 +7,8 @@ const htmlPath = path.join(outputDirectory, "index.html");
 const staticDirectory = path.join(outputDirectory, "_next/static");
 const cssDirectory = path.join(outputDirectory, "_next/static/css");
 const imagesDirectory = path.join(outputDirectory, "images");
+const siteOrigin = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://reborn-massage.ru").replace(/\/$/, "");
+const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 
 // This example is for the server administrator, not the public document root.
 // GitHub Pages ignores Apache access rules, so exclude the directory entirely.
@@ -48,6 +50,18 @@ html = html
 
 await writeFile(htmlPath, html);
 
+const robots = allowIndexing
+  ? `User-agent: *\nAllow: /\nHost: ${siteOrigin}\nSitemap: ${siteOrigin}/sitemap.xml\n`
+  : "User-agent: *\nDisallow: /\n";
+const sitemap = allowIndexing
+  ? `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${siteOrigin}/</loc>\n    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n  </url>\n</urlset>\n`
+  : `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n`;
+
+await Promise.all([
+  writeFile(path.join(outputDirectory, "robots.txt"), robots),
+  writeFile(path.join(outputDirectory, "sitemap.xml"), sitemap),
+]);
+
 for (const entry of await readdir(staticDirectory, { withFileTypes: true })) {
   if (entry.isDirectory() && !["css", "media"].includes(entry.name)) {
     await rm(path.join(staticDirectory, entry.name), { recursive: true, force: true });
@@ -79,4 +93,4 @@ for (const filename of await readdir(cssDirectory)) {
   await writeFile(cssPath, portableCss);
 }
 
-console.log("Prepared a privacy-gated, CSP-hardened relative build for GitHub Pages.");
+console.log("Prepared a privacy-gated, CSP-hardened relative build.");
